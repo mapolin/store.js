@@ -219,10 +219,6 @@ var docCookies = {
 	}
 	store.enabled = !store.disabled
 
-	if (typeof module != 'undefined' && module.exports && this.module !== module) { module.exports = store }
-	else if (typeof define === 'function' && define.amd) { define(store) }
-	else { win.store = store }
-
 	// iOS in private mode => use cookies
 	// uses Mozilla's docCookies
 	// docCookies.setItem(name, value[, end[, path[, domain[, secure]]]])
@@ -264,5 +260,9 @@ var docCookies = {
 			}
 		}
 	}
+
+	if (typeof module != 'undefined' && module.exports && this.module !== module) { module.exports = store }
+	else if (typeof define === 'function' && define.amd) { define(store) }
+	else { win.store = store }
 
 })(Function('return this')());
