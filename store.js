@@ -57,7 +57,7 @@ var docCookies = {
   }
 };
 
-;(function(win){
+(function(win){
 	var store = {},
 		doc = win.document,
 		localStorageName = 'localStorage',
@@ -226,7 +226,7 @@ var docCookies = {
 	// docCookies.removeItem(name[, path], domain)
 	// docCookies.hasItem(name)
 	// docCookies.keys()
-	if(navigator.userAgent.match(/iPhone/i) && !store.enabled) {
+	if((navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i)) && !store.enabled) {
 
 		store.storage = [];
 		store.set = function(key, val) {
